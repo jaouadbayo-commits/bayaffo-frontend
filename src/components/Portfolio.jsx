@@ -12,20 +12,25 @@ const Portfolio = () => {
   }, []);
 
   const fetchPortfolio = async () => {
+    const fallbackData = [
+      { id: 1, title: 'Mariage Royal', category: 'Wedding', image: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&q=80' },
+      { id: 2, title: 'Event Corporate', category: 'Event', image: 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&q=80' },
+      { id: 3, title: 'Portrait Studio', category: 'Portrait', image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80' },
+      { id: 4, title: 'Fête Traditionnelle', category: 'Wedding', image: 'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80' },
+      { id: 5, title: 'Lancement Produit', category: 'Event', image: 'https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?auto=format&fit=crop&q=80' },
+      { id: 6, title: 'Portrait Extérieur', category: 'Portrait', image: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&q=80' },
+    ];
+
     try {
       const response = await getPortfolio();
-      setItems(response.data);
+      if (response.data && response.data.length > 0) {
+        setItems(response.data);
+      } else {
+        setItems(fallbackData);
+      }
     } catch (error) {
       console.error("Error fetching portfolio", error);
-      // Fallback data
-      setItems([
-        { id: 1, title: 'Mariage Royal', category: 'Wedding', image: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&q=80' },
-        { id: 2, title: 'Event Corporate', category: 'Event', image: 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&q=80' },
-        { id: 3, title: 'Portrait Studio', category: 'Portrait', image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80' },
-        { id: 4, title: 'Fête Traditionnelle', category: 'Wedding', image: 'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80' },
-        { id: 5, title: 'Lancement Produit', category: 'Event', image: 'https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?auto=format&fit=crop&q=80' },
-        { id: 6, title: 'Portrait Extérieur', category: 'Portrait', image: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&q=80' },
-      ]);
+      setItems(fallbackData);
     }
   };
 
