@@ -37,7 +37,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <p className="text-xs text-zinc-500 uppercase tracking-widest">Téléphone</p>
-                  <p className="text-white font-bold">+212 6 00 00 00 00</p>
+                  <p className="text-white font-bold">07 16 68 60 14</p>
                 </div>
               </div>
 
@@ -57,7 +57,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <p className="text-xs text-zinc-500 uppercase tracking-widest">Localisation</p>
-                  <p className="text-white font-bold">Casablanca, Maroc</p>
+                  <p className="text-white font-bold">Marrakech, Maroc</p>
                 </div>
               </div>
             </div>
@@ -69,7 +69,7 @@ const Contact = () => {
               <a href="https://facebook.com/bayaffo" target="_blank" className="w-12 h-12 bg-zinc-900 border border-gold/10 flex items-center justify-center hover:bg-gold hover:text-black transition-all">
                 <Facebook size={20} />
               </a>
-              <a href="https://wa.me/212600000000" target="_blank" className="px-6 h-12 bg-zinc-900 border border-gold/10 flex items-center gap-2 hover:bg-green-600 transition-all font-bold">
+              <a href="https://wa.me/212716686014" target="_blank" className="px-6 h-12 bg-zinc-900 border border-gold/10 flex items-center gap-2 hover:bg-green-600 transition-all font-bold">
                 WhatsApp
               </a>
             </div>
