@@ -15,9 +15,11 @@ export const AuthProvider = ({ children }) => {
         if (token) {
             try {
                 const decoded = jwtDecode(token);
-                setUser(decoded);
+                const username = localStorage.getItem('username');
+                setUser({ ...decoded, username });
             } catch (e) {
                 localStorage.removeItem('access_token');
+                localStorage.removeItem('username');
             }
         }
         setLoading(false);
@@ -27,14 +29,16 @@ export const AuthProvider = ({ children }) => {
         const response = await axios.post(`${API_URL}/api/login/`, { username, password });
         localStorage.setItem('access_token', response.data.access);
         localStorage.setItem('refresh_token', response.data.refresh);
+        localStorage.setItem('username', username);
         const decoded = jwtDecode(response.data.access);
-        setUser(decoded);
+        setUser({ ...decoded, username });
         return response.data;
     };
 
     const logout = () => {
         localStorage.removeItem('access_token');
         localStorage.removeItem('refresh_token');
+        localStorage.removeItem('username');
         setUser(null);
     };
 

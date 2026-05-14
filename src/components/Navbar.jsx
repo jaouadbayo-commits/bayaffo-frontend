@@ -53,7 +53,7 @@ const Navbar = () => {
                 <Link to="/admin-custom" className="text-xs uppercase tracking-widest text-zinc-400 hover:text-gold transition-all">Admin</Link>
               )}
               <Link to="/dashboard" className="text-xs uppercase tracking-widest text-gold font-bold hover:text-white transition-all flex items-center gap-2">
-                <UserIcon size={14} /> Espace Client
+                <UserIcon size={14} /> {user.username ? user.username : 'Espace Client'}
               </Link>
               <button onClick={logout} className="text-xs uppercase tracking-widest text-zinc-500 hover:text-red-500 transition-all">Quitter</button>
             </div>
