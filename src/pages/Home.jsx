@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from '../context/AuthContext';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import About from '../components/About';
@@ -10,15 +11,17 @@ import Contact from '../components/Contact';
 import Footer from '../components/Footer';
 
 const Home = () => {
+  const { user } = useContext(AuthContext);
+
   return (
     <div className="bg-black min-h-screen">
       <Navbar />
       <Hero />
       <About />
-      <Services />
+      {user && <Services />}
       <Portfolio />
       <Testimonials />
-      <BookingForm />
+      {user && <BookingForm />}
       <Contact />
       <Footer />
     </div>
